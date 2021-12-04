@@ -62,11 +62,58 @@
           <template #default>
             <el-button type="text"
                        size="small"
-                       @click="handleClick">编辑</el-button>
+                       @click="dialogVisible=true">编辑</el-button>
 
           </template>
         </el-table-column>
       </el-table>
+    </div>
+
+    <div id="dialogBox"
+         v-if="dialogVisible">
+      <el-row>
+
+        <el-col :span="24">
+          <el-input v-model="input"
+                    placeholder="用户名" />
+        </el-col>
+
+        <el-col :span="24">
+          <el-input v-model="input"
+                    placeholder="联系方式" />
+        </el-col>
+        <el-col :span="24">
+          <el-input v-model="input"
+                    placeholder="邮箱" />
+        </el-col>
+        <el-col :span="24">
+          <el-input v-model="input"
+                    placeholder="性别" />
+        </el-col>
+        <el-col :span="24">
+          <el-input v-model="input"
+                    placeholder="真实姓名" />
+        </el-col>
+        <el-col :span="24">
+          <el-input v-model="input"
+                    placeholder="身份证号码" />
+        </el-col>
+        <el-col :span="24">
+          <el-input v-model="textarea"
+                    :rows="2"
+                    type="textarea"
+                    placeholder="冻结理由" />
+        </el-col>
+        <el-col :span="14"></el-col>
+        <el-col :span="5">
+          <el-button @click="dialogVisible=false">取消</el-button>
+        </el-col>
+        <el-col :span="5">
+          <el-button type="primary"
+                     @click="dialogVisible=false">冻结</el-button>
+
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -76,12 +123,15 @@ import { defineComponent, ref } from 'vue'
 export default defineComponent({
   name: 'usermanagement',
   setup() {
+    const dialogVisible = ref(false)
+
     const searchData = ref('')
     const handleClick = () => {
       console.log('click')
     }
     return {
       searchData,
+      dialogVisible,
       handleClick,
       options: ref([
         {
@@ -169,5 +219,22 @@ export default defineComponent({
 
 .demo-input-suffix {
   margin-bottom: 16px;
+}
+
+#dialogBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.el-input {
+  margin-bottom: 5px;
+}
+.el-button {
+  margin-top: 10px;
 }
 </style>
