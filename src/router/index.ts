@@ -37,6 +37,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/withdrawalapply',
         name: 'withdrawalapply',
         component: () => import('../views/Withdrawalapply/Withdrawalapply.vue')
+      },
+      {
+        path: '/realNameexamine',
+        name: 'realNameexamine',
+        component: () => import('../views/RealNameExamine/RealNameExamine.vue')
       }
     ]
   }

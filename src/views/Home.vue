@@ -138,6 +138,9 @@ export default defineComponent({
         case '3-1':
           toPath = 'examine'
           break
+        case '3-2':
+          toPath = 'realNameexamine'
+          break
       }
       userrouter.replace({ path: `/${toPath}` })
     }
